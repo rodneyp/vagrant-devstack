@@ -12,6 +12,7 @@ SERVICE_PASSWORD=password
 SERVICE_TOKEN=tokentoken
 PUBLIC_INTERFACE=eth0
 FLAT_INTERFACE=lo
+HOST_IP_IFACE=eth1
 EOF
 
 chown -R vagrant .
