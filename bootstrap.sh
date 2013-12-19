@@ -1,7 +1,13 @@
 #!/bin/bash
 apt-get install git -y
-test -d devstack || \
-	sudo -u vagrant git clone git://github.com/openstack-dev/devstack.git 
+if test -d devstack; then
+  for f in mysql rabbitmq apache2; do
+    service $f start
+  done
+else
+  sudo -u vagrant git clone git://github.com/openstack-dev/devstack.git 
+fi
+
 cd devstack
 sudo -u vagrant git checkout stable/grizzly
 cat <<EOF > localrc
