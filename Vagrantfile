@@ -1,4 +1,4 @@
-devstack_version = "grizzly"
+devstack_version = "hybrid"
 
 Vagrant.configure("1") do |config|
 #  config.vm.boot_mode = :gui
@@ -21,7 +21,7 @@ Vagrant.configure("2") do |cfg|
   #  config.vm.network :forwarded_port, host: 6080, guest: 6080, auto_correct: true
 
 
-    config.vm.provision :shell, :path => "bootstrap.sh"
+    config.vm.provision :shell, :path => "bootstrap.sh", :args => devstack_version
   
     config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "2048"]
