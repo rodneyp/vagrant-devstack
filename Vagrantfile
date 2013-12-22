@@ -10,7 +10,7 @@ Vagrant.configure("2") do |cfg|
     config.vm.box = devstack_version+"-hybrid"
     config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
-    config.vm.hostname = devstack_version
+    config.vm.hostname = config.vm.box
 
   # interfaces
     config.vm.network "private_network", type: :dhcp
